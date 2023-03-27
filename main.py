@@ -1,1 +1,4 @@
-print("Hello World!")
+import random
+
+
+def init.briefcases()
