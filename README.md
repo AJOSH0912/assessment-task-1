@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function deal_or_no_deal:
 
 # Initialise briefcases with random values between $1 and $1,000,000
@@ -55,3 +56,8 @@ return
 display message that player has chosen to keep their briefcase
 
 display the value of the player's briefcase
+=======
+# assessment-task-1
+assessment-task-1
+asdasddasdasdasdads
+>>>>>>> c7de299b0544038c5794d6bbfc24a0afd153827a
