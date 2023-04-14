@@ -11,8 +11,18 @@ def offer():
       val = val+briefcases[x]
   return val/len(briefcases)  
 
-yes_or_no = input("Welcome new player! Would you like to play a game of deal no deal?\n")
+def shuffle():
+  keys = list(briefcases.keys())
+  random.shuffle(keys)
+  shuffled_briefcases = dict()
+  for i in keys:
+    shuffled_briefcases.update({i: briefcases[keys]})
+  return shuffled_briefcases
+shuffle
 
+
+yes_or_no = input("Welcome new player! Would you like to play a game of deal no deal?\n")
+random.shuffle(briefcases)
 if yes_or_no.lower() == "yes":
   print("Let's start!")
 else:
@@ -33,14 +43,22 @@ while yes_or_no.lower() == "yes":
 
   print("Pick a briefcase from this:" + str(remaining_briefcases))
   print("The banker is thinking of a deal")
-  time.sleep(3)
+  print(".")
+  time.sleep(1.2)
+  print(".")
+  time.sleep(1.2)
+  print(".")
+  time.sleep(1.2)
 
-  print("The bank offer you $" + str(offer()))
+  print("The banker offers you $" + str(offer()))
 
   deal_or_no = input("Do you accept this offer(1) or do you reject this offer(2)")
   print(deal_or_no)
-  if deal_or_no == "2":
+  if deal_or_no == "1":
     print("You have won " + str(offer()))
     exit()
   else:
-    
+    print("Ok, let's continue!")
+  while len(remaining_briefcases) > 13:
+    print("Hello")
+    break
