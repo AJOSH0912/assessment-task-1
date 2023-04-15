@@ -12,7 +12,6 @@ def offer():
   return val/len(briefcases)  
 
 def shuffle():
-  print("I am here")
   keys = list(briefcases.keys())
   random.shuffle(keys)
   shuffled_briefcases = dict()
@@ -132,3 +131,5 @@ while yes_or_no.lower() == "yes":
     exit()
   else:
     print("Ok, let's continue!")
+
+    print("Hello")
