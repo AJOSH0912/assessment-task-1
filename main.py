@@ -51,7 +51,7 @@ while yes_or_no.lower() == "yes":
   time.sleep(1.2)
 
   print("The banker offers you $" + str(offer()))
-
+  time.sleep(2)
   deal_or_no = input("Do you accept this offer(1) or do you reject this offer(2)")
   print(deal_or_no)
   if deal_or_no == "1":
@@ -75,21 +75,21 @@ while yes_or_no.lower() == "yes":
   time.sleep(1.2)
 
   print("The banker offers you $" + str(offer()))
-
-  deal_or_no = input("Do you accept this offer(1) or do you reject this offer(2)")
-  print(deal_or_no)
-  if deal_or_no == "1":
+  time.sleep(2)
+  deal_or_no1 = input("Do you accept this offer(1) or do you reject this offer(2)")
+  print(deal_or_no1)
+  if deal_or_no1 == "1":
     print("You have won " + str(offer()))
     exit()
   else:
     print("Ok, let's continue!")
   while len(remaining_briefcases) > 6:
-    user_choice2 = input("Pick a briefcase that you have not chosen")
-    if int(user_choice1) not in remaining_briefcases:
+    user_choice3 = input("Pick a briefcase that you have not chosen")
+    if int(user_choice3) not in remaining_briefcases:
       print("You have allready chosen this")
     else:
-      print("You eliminated " + str(briefcases[int(user_choice1)]) + " Dollar/s")
-      remaining_briefcases.pop(remaining_briefcases.index(int(user_choice1)))
+      print("You eliminated " + str(briefcases[int(user_choice3)]) + " Dollar/s")
+      remaining_briefcases.pop(remaining_briefcases.index(int(user_choice3)))
   print("The banker is thinking of a deal")
   print(".")
   time.sleep(1.2)
@@ -99,21 +99,21 @@ while yes_or_no.lower() == "yes":
   time.sleep(1.2)
 
   print("The banker offers you $" + str(offer()))
-
-  deal_or_no = input("Do you accept this offer(1) or do you reject this offer(2)")
-  print(deal_or_no)
-  if deal_or_no == "1":
+  time.sleep(2)
+  deal_or_no2 = input("Do you accept this offer(1) or do you reject this offer(2)")
+  print(deal_or_no2)
+  if deal_or_no2 == "1":
     print("You have won " + str(offer()))
     exit()
   else:
     print("Ok, let's continue!")
   while len(remaining_briefcases) > 3:
-    user_choice2 = input("Pick a briefcase that you have not chosen")
-    if int(user_choice1) not in remaining_briefcases:
+    user_choice4 = input("Pick a briefcase that you have not chosen")
+    if int(user_choice4) not in remaining_briefcases:
       print("You have allready chosen this")
     else:
-      print("You eliminated " + str(briefcases[int(user_choice1)]) + " Dollar/s")
-      remaining_briefcases.pop(remaining_briefcases.index(int(user_choice1)))
+      print("You eliminated " + str(briefcases[int(user_choice4)]) + " Dollar/s")
+      remaining_briefcases.pop(remaining_briefcases.index(int(user_choice4)))
   print("The banker is thinking of a deal")
   print(".")
   time.sleep(1.2)
@@ -123,13 +123,40 @@ while yes_or_no.lower() == "yes":
   time.sleep(1.2)
 
   print("The banker offers you $" + str(offer()))
-
-  deal_or_no = input("Do you accept this offer(1) or do you reject this offer(2)")
-  print(deal_or_no)
-  if deal_or_no == "1":
+  time.sleep(2)
+  deal_or_no3 = input("Do you accept this offer(1) or do you reject this offer(2)")
+  print(deal_or_no3)
+  if deal_or_no3 == "1":
     print("You have won " + str(offer()))
     exit()
   else:
     print("Ok, let's continue!")
-
-    print("Hello")
+  while len(remaining_briefcases) > 1:
+    user_choice5 = input("Pick a briefcase that you have not chosen")
+    if int(user_choice5) not in remaining_briefcases:
+      print("You have allready chosen this")
+    else:
+      print("You eliminated " + str(briefcases[int(user_choice5)]) + " Dollar/s")
+      remaining_briefcases.pop(remaining_briefcases.index(int(user_choice5)))
+  print("The banker is thinking of a deal")
+  print(".")
+  time.sleep(1.2)
+  print(".")
+  time.sleep(1.2)
+  print(".")
+  time.sleep(1.2)
+  print("The banker offers you $" + str(offer()))
+  time.sleep(2)
+  deal_or_no4 = input("Do you accept this offer(1) or do you reject this offer(2)")
+  print(deal_or_no4)
+  if deal_or_no4 == "1":
+    print("You have won " + str(offer()))
+    exit()
+  else:
+    print("Ok, let's continue!")
+  final_choice = input("Now you have 2 cases left, pick either your personal case(1) or the remaining case(2) to take home the money in that case")
+  if final_choice == 1:
+    print(player_briefcase)
+  elif final_choice == 2:
+    print(remaining_briefcases)
+  else:
