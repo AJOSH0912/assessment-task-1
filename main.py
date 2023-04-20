@@ -1,6 +1,6 @@
 import random
+from tkinter import * 
 import time
-import sys
 
 briefcases = {1:1, 2:5, 3:10, 4:20, 5:50, 6:100, 7:200, 8:300, 9:1000, 10:1500, 11:2000, 12:3000, 13:5000, 14:7000, 15:10000, 16:20000, 17:30000, 18:50000, 19:70000, 20:100000, 21:150000, 22:200000, 23:300000, 24:500000, 25:750000, 26:1000000}
 remaining_briefcases = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]
@@ -8,8 +8,7 @@ remaining_briefcases = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22
 def offer():
   val = 0
   for x in briefcases:
-    if x in remaining_briefcases:
-      val = val+briefcases[x]
+    val = val+briefcases[x]
   return val/len(briefcases)  
 
 def shuffle():
@@ -23,11 +22,11 @@ def shuffle():
 
 shuffle
 
-yes_or_no = input("Welcome new player! Would you like to play a game of deal no deal?\n")
+yes_or_no = input("Welcome new player! Would you like to play a game of deal no deal?\n ")
 
 if yes_or_no.lower() == "yes":
   print(''' Great! Now that you want to play lets lern the rules! There are 26 briefcases ranging from
-  values from one dollar to one million dollars.You must now choose to keep one briefcase safe from elimination, 
+  values from one dollar to one million dollars.You must now choose to keep one briefcase safe from elimination 
   this is known as your personal briefcase.You will eliminate 6 briefcases of your choice.
   After this the bank will make an offer, it is your choice to accept the offer or not. If you
   take the deal then you will walk away with that amount of money and the game will end. If you do not
@@ -40,13 +39,13 @@ else:
   exit()
 
 while yes_or_no.lower() == "yes":
-  player_briefcase = int(input("Pick your personal case from the numbers between 1 and 26!\n"))
+  player_briefcase = int(input("Pick your personal case from the numbers between 1 and 26!\n "))
   # Below line is to remove the selected item from the list
   remaining_briefcases.pop(remaining_briefcases.index(int(player_briefcase)))
-  while len(remaining_briefcases) > 19:  
-    user_choice1 = input("Choose a briefcase to eliminate\n") 
+  while len(remaining_briefcases) > 20:  
+    user_choice1 = input("Choose a briefcase to eliminate\n ") 
     if int(user_choice1) not in remaining_briefcases:
-      print("You have allready chosen this")
+      print("Sorry, you can only choose from briefcases going from 1 to 26")
     else:
       print("You eliminated " + str(briefcases[int(user_choice1)]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice1)))
@@ -59,22 +58,23 @@ while yes_or_no.lower() == "yes":
   print(".")
   time.sleep(1.2)
 
-  print("The banker offers you $" + str(offer()))
+  print("The banker offers you $" + str(offer())) 
   time.sleep(2)
-  deal_or_no = input("Do you accept this offer(1) or do you reject this offer(2)")
+  deal_or_no = input("Do you accept this offer(deal) or do you reject this offer(no deal) ")
   print(deal_or_no)
-  if deal_or_no == "1":
+  if deal_or_no == "deal":
     print("You have won " + str(offer()))
     exit()
   else:
     print("Ok, let's continue!")
-  while len(remaining_briefcases) > 13:
-    user_choice2 = input("Pick a briefcase that you have not chosen")
+  while len(remaining_briefcases) > 14:
+    user_choice2 = input("Pick a briefcase that you have not chosen ")
     if int(user_choice2) not in remaining_briefcases:
-      print("You have allready chosen this")
+      print("Sorry, you can only choose from briefcases going from 1 to 26")
     else:
       print("You eliminated " + str(briefcases[int(user_choice2)]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice2)))
+ 
   print("The banker is thinking of a deal")
   print(".")
   time.sleep(1.2)
@@ -85,17 +85,17 @@ while yes_or_no.lower() == "yes":
 
   print("The banker offers you $" + str(offer()))
   time.sleep(2)
-  deal_or_no1 = input("Do you accept this offer(1) or do you reject this offer(2)")
+  deal_or_no1 = input("Do you accept this offer(deal) or do you reject this offer(no deal) ")
   print(deal_or_no1)
-  if deal_or_no1 == "1":
+  if deal_or_no1 == "deal":
     print("You have won " + str(offer()))
     exit()
   else:
     print("Ok, let's continue!")
-  while len(remaining_briefcases) > 6:
-    user_choice3 = input("Pick a briefcase that you have not chosen")
+  while len(remaining_briefcases) > 8:
+    user_choice3 = input("Pick a briefcase that you have not chosen ")
     if int(user_choice3) not in remaining_briefcases:
-      print("You have allready chosen this")
+      print("Sorry, you can only choose from briefcases going from 1 to 26")
     else:
       print("You eliminated " + str(briefcases[int(user_choice3)]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice3)))
@@ -109,17 +109,17 @@ while yes_or_no.lower() == "yes":
 
   print("The banker offers you $" + str(offer()))
   time.sleep(2)
-  deal_or_no2 = input("Do you accept this offer(1) or do you reject this offer(2)")
+  deal_or_no2 = input("Do you accept this offer(deal) or do you reject this offer(no deal) ")
   print(deal_or_no2)
-  if deal_or_no2 == "1":
+  if deal_or_no2 == "deal":
     print("You have won " + str(offer()))
     exit()
   else:
     print("Ok, let's continue!")
-  while len(remaining_briefcases) > 3:
-    user_choice4 = input("Pick a briefcase that you have not chosen")
+  while len(remaining_briefcases) > 2:
+    user_choice4 = input("Pick a briefcase that you have not chosen ")
     if int(user_choice4) not in remaining_briefcases:
-      print("You have allready chosen this")
+      print("Sorry, you can only choose from briefcases going from 1 to 26")
     else:
       print("You eliminated " + str(briefcases[int(user_choice4)]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice4)))
@@ -133,17 +133,17 @@ while yes_or_no.lower() == "yes":
 
   print("The banker offers you $" + str(offer()))
   time.sleep(2)
-  deal_or_no3 = input("Do you accept this offer(1) or do you reject this offer(2)")
+  deal_or_no3 = input("Do you accept this offer(deal) or do you reject this offer(no deal) ")
   print(deal_or_no3)
-  if deal_or_no3 == "1":
+  if deal_or_no3 == "deal":
     print("You have won " + str(offer()))
     exit()
   else:
     print("Ok, let's continue!")
   while len(remaining_briefcases) > 1:
-    user_choice5 = input("Pick a briefcase that you have not chosen")
+    user_choice5 = input("Pick a briefcase that you have not chosen ")
     if int(user_choice5) not in remaining_briefcases:
-      print("You have allready chosen this")
+      print("Sorry, you can only choose from briefcases going from 1 to 26")
     else:
       print("You eliminated " + str(briefcases[int(user_choice5)]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice5)))
@@ -154,18 +154,19 @@ while yes_or_no.lower() == "yes":
   time.sleep(1.2)
   print(".")
   time.sleep(1.2)
+  
   print("The banker offers you $" + str(offer()))
   time.sleep(2)
-  deal_or_no4 = input("Do you accept this offer(1) or do you reject this offer(2)")
+  deal_or_no4 = input("Do you accept this offer(deal) or do you reject this offer(no deal) ")
   print(deal_or_no4)
-  if deal_or_no4 == "1":
+  if deal_or_no4 == "deal":
     print("You have won " + str(offer()))
     exit()
   else:
     print("Ok, let's continue!")
-  final_choice = input("Now you have 2 cases left, pick either your personal case(1) or the remaining case(2) to take home the money in that case")
+  final_choice = input("Now you have 2 cases left, pick either your personal(1) case or the remaining case(2) to take home the money in that case ")
   if final_choice == 1:
     print(player_briefcase)
   elif final_choice == 2:
     print(remaining_briefcases)
-  else:
+  
