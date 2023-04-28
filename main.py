@@ -7,18 +7,18 @@ colorama.init()
 from tkinter import*
 briefcases = {1:1, 2:5, 3:10, 4:20, 5:50, 6:100, 7:200, 8:300, 9:1000, 10:1500, 11:2000, 12:3000, 13:5000, 14:7000, 15:10000, 16:20000, 17:30000, 18:50000, 19:70000, 20:100000, 21:150000, 22:200000, 23:300000, 24:500000, 25:750000, 26:1000000}
 remaining_briefcases = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]
-<<<<<<< Updated upstream
-random.shuffle(briefcases)
-print(briefcases)
 
-  keys = list(briefcases.keys())
-  random.shuffle(keys)
-  shuffled_briefcases = dict()
-  for i in keys:
-    shuffled_briefcases.update({i: briefcases[keys]})
-  return shuffled_briefcases
 
-<<<<<<< HEAD
+
+def shuffle():
+    keys = list(briefcases.keys())
+    random.shuffle(keys)
+    shuffled_briefcases = dict()
+    for i in keys:
+        shuffled_briefcases.update({i: briefcases[keys]})
+    return shuffled_briefcases
+
+
 yes_or_no = input("Welcome new player! Would you like to play a game of deal no deal?\n ")
 
 if yes_or_no.lower() == "yes":
@@ -65,7 +65,7 @@ print(''' Great! Now that you want to play lets lern the rules! There are 26 bri
   another offer this will continue until either the contestant chooses a deal or they reach the last 
   two remaining briefcases. If the contestant reaches the last two remaining briefcases then the contestant
   must select one and the contestant will get the amount of money in the leftover briefcase.''')
-=======
+
 
 shuffled_briefcases = shuffle
 
@@ -106,7 +106,6 @@ if yes_or_no.lower() == "yes":
 else:
   print("That's sad!")
   exit()
->>>>>>> a38b8eacc8b49d03648d487008aff3b759a11902
 
 print()
 player_briefcase = int(input("Pick your personal case from the numbers between 1 and 26!\n "))
