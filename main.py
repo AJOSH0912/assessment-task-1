@@ -17,6 +17,7 @@ print(briefcases)
     shuffled_briefcases.update({i: briefcases[keys]})
   return shuffled_briefcases
 
+<<<<<<< HEAD
 yes_or_no = input("Welcome new player! Would you like to play a game of deal no deal?\n ")
 
 if yes_or_no.lower() == "yes":
@@ -63,6 +64,35 @@ print(''' Great! Now that you want to play lets lern the rules! There are 26 bri
   another offer this will continue until either the contestant chooses a deal or they reach the last 
   two remaining briefcases. If the contestant reaches the last two remaining briefcases then the contestant
   must select one and the contestant will get the amount of money in the leftover briefcase.''')
+=======
+
+shuffled_briefcases = shuffle
+
+
+yes_or_no = input("Welcome new player! Would you like to play a game of deal no deal?\n ")
+
+if yes_or_no.lower() == "yes":
+  print("Great! Now that you want to play lets learn the rules")
+  time.sleep(3)
+  print("There are 26 briefcases ranging from values from one dollar to one million dollars.")
+  time.sleep(3)
+  print("You must now choose to keep one briefcase safe from elimination this is known as your personal briefcase.")
+  time.sleep(3)
+  print("You will eliminate 6 briefcases of your choice.")
+  time.sleep(3)
+  print("After this the bank will make an offer, it is your choice to accept the offer or not.")
+  time.sleep(3)
+  print("If you take the deal then you will walk away with that amount of money and the game will end.")
+  time.sleep(3)
+  print("If you do not take the offer then you will choose another six briefcases to eliminate.")
+  time.sleep(3)
+  print("Then the banker will make another offer this will continue until either the contestant chooses a deal or they reach the last two remaining briefcases.")
+  time.sleep(4)
+  print("If the contestant reaches the last two remaining briefcases then the contestant must select one and the contestant will get the amount of money in the leftover briefcase.")
+else:
+  print("That's sad!")
+  exit()
+>>>>>>> a38b8eacc8b49d03648d487008aff3b759a11902
 
 print()
 player_briefcase = int(input("Pick your personal case from the numbers between 1 and 26!\n "))
@@ -77,7 +107,7 @@ while yes_or_no.lower() == "yes":
   while len(remaining_briefcases) > 20:  
     user_choice1 = input("Choose a briefcase to eliminate\n ") 
     if int(user_choice1) not in remaining_briefcases:
-      print("Sorry, you can only choose from briefcases going from 1 to 26")
+      print("Sorry, you can only choose from briefcases between 1 to 26")
     else:
       print("You eliminated " + str(briefcases[int(user_choice1)]) + " Dollar/s")
 
