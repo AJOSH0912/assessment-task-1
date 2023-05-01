@@ -189,4 +189,3 @@ while yes_or_no.lower() == "yes":
     delay_print(player_briefcase)
   elif final_choice == 2:
     delay_print(remaining_briefcases)
-  
