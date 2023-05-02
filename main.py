@@ -34,29 +34,33 @@ def shuffle():
 shuffled_briefcases = shuffle
 
 
-yes_or_no = input("Welcome new player! Would you like to play a game of deal no deal?\n ")
+yes_or_no = input("Welcome new player! Would you like to play a game of deal no deal?\n ") 
 
 if yes_or_no.lower() == "yes":
-  delay_print("Great! Now that you want to play lets learn the rules")
-  time.sleep(3)
-  delay_print("There are 26 briefcases ranging from values from one dollar to one million dollars.")
-  time.sleep(3)
-  delay_print("You must now choose to keep one briefcase safe from elimination this is known as your personal briefcase.")
-  time.sleep(3)
-  delay_print("You will eliminate 6 briefcases of your choice.")
-  time.sleep(3)
-  delay_print("After this the bank will make an offer, it is your choice to accept the offer or not.")
-  time.sleep(3)
-  delay_print("If you take the deal then you will walk away with that amount of money and the game will end.")
-  time.sleep(3)
-  delay_print("If you do not take the offer then you will choose another six briefcases to eliminate.")
-  time.sleep(3)
-  delay_print("Then the banker will make another offer this will continue until either the contestant chooses a deal or they reach the last two remaining briefcases.")
-  time.sleep(4)
-  delay_print("If the contestant reaches the last two remaining briefcases then the contestant must select one and the contestant will get the amount of money in the leftover briefcase.")
+  user_tutorial = input("Do you know the rules?")
 else:
   delay_print("That's sad!")
   exit()
+  
+if user_tutorial.lower() == "no":
+  time.sleep(1)
+  delay_print("There are 26 briefcases ranging from values from one dollar to one million dollars. ")
+  time.sleep(1)
+  delay_print("You must now choose to keep one briefcase safe from elimination this is known as your personal briefcase. ")
+  time.sleep(1)
+  delay_print("You will eliminate 6 briefcases of your choice. ")
+  time.sleep(1)
+  delay_print("After this the bank will make an offer, it is your choice to accept the offer or not. ")
+  time.sleep(1)
+  delay_print("If you take the deal then you will walk away with that amount of money and the game will end. ")
+  time.sleep(1)
+  delay_print("If you do not take the offer then you will choose another six briefcases to eliminate. ")
+  time.sleep(1)
+  delay_print("Then the banker will make another offer this will continue until either the contestant chooses a deal or they reach the last two remaining briefcases. ")
+  time.sleep(1)
+  delay_print("If the contestant reaches the last two remaining briefcases then the contestant must select one and the contestant will get the amount of money in the leftover briefcase. ")
+else:
+  print("Let's Start")
 
 while yes_or_no.lower() == "yes":
   player_briefcase = int(input("Pick your personal case from the numbers between 1 and 26!\n "))
@@ -69,6 +73,7 @@ while yes_or_no.lower() == "yes":
     else:
       delay_print("You eliminated " + str(briefcases[int(user_choice1)]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice1)))
+    print()
 
   delay_print("The banker is thinking of a deal")
   delay_print(".")
@@ -79,13 +84,16 @@ while yes_or_no.lower() == "yes":
   time.sleep(1.2)
 
   delay_print("The banker offers you $" + str(offer())) 
+  print()
   time.sleep(2)
   deal_or_no = input("Do you accept this offer(deal) or do you reject this offer(no deal) ")
   delay_print(deal_or_no)
   if deal_or_no == "deal":
+    print()
     delay_print("You have won " + str(offer()))
     exit()
   else:
+    print()
     delay_print("Ok, let's continue!")
   while len(remaining_briefcases) > 14:
     user_choice2 = input("Pick a briefcase that you have not chosen ")
@@ -186,6 +194,6 @@ while yes_or_no.lower() == "yes":
     delay_print("Ok, let's continue!")
   final_choice = input("Now you have 2 cases left, pick either your personal(1) case or the remaining case(2) to take home the money in that case ")
   if final_choice == 1:
-    delay_print(player_briefcase)
+    delay_print("You have won " + player_briefcase)
   elif final_choice == 2:
-    delay_print(remaining_briefcases)
+    delay_print(briefcases(player_briefcase))
