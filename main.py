@@ -101,20 +101,20 @@ if user_tutorial.lower() == "no":
   delay_print("If the contestant reaches the last two remaining briefcases then the contestant must select one and the contestant will get the amount of money in the leftover briefcase. ")
 else:
   print("Let's Start")
-
+#The above code are the rules explained to the player once they agree to play the game. If they do not want to play the game, the game replies with "That's sad" and ends the code.
 while yes_or_no.lower() == "yes":
   player_briefcase = int(input("Pick your personal case from the numbers between 1 and 26!\n "))
   # Below line is to remove the selected item from the list
   remaining_briefcases.pop(remaining_briefcases.index(int(player_briefcase)))
   while len(remaining_briefcases) > 20:  
-    user_choice1 = input("Choose a briefcase to eliminate\n ") 
+    user_choice1 = input(delay_print("Choose a briefcase to eliminate\n "))
     if int(user_choice1) not in remaining_briefcases:
       delay_print("Sorry, you can only choose from briefcases between 1 to 26")
     else:
       delay_print("You eliminated " + str(briefcases[int(user_choice1)]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice1)))
     print()
-
+#The above code asks to pick a personal briefcase between 1- 26. You then choose a breifcase to eliminate. If the player chooses a briefcases that is not between numbers 1-26 it will ask them to. It then tells them what briefcase they eliminated and how much money you have lost.
   delay_print("The banker is thinking of a deal")
   delay_print(".")
   time.sleep(1.2)
@@ -122,7 +122,7 @@ while yes_or_no.lower() == "yes":
   time.sleep(1.2)
   delay_print(".")
   time.sleep(1.2)
-
+#This informs the player that the banker is thinking of a deal while making "waiting emojis".
   delay_print("The banker offers you $" + str(offer())) 
   print()
   time.sleep(2)
@@ -142,7 +142,8 @@ while yes_or_no.lower() == "yes":
     else:
       delay_print("You eliminated " + str(briefcases[int(user_choice2)]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice2)))
- 
+#The code now informs the player how much money the banker offers you as the player. You then choose deal or no deal. If you accept the deal the code tells you how much you have won. If you reject the deal the code tells you to continue.
+#Once again the code asks you to pick a briefcase between the number 1-26. If you do not pick one from 1-26 it will ask you to do that. It also asks you to eliminate one briefcase, tells you which one you eliminated and how much money you lost.
   delay_print("The banker is thinking of a deal")
   delay_print(".")
   time.sleep(1.2)
@@ -150,7 +151,7 @@ while yes_or_no.lower() == "yes":
   time.sleep(1.2)
   delay_print(".")
   time.sleep(1.2)
-
+#Once again the banker thinks of a deal whilst making "waiting emojis".
   delay_print("The banker offers you $" + str(offer()))
   time.sleep(2)
   deal_or_no1 = input("Do you accept this offer(deal) or do you reject this offer(no deal) ")
@@ -167,6 +168,8 @@ while yes_or_no.lower() == "yes":
     else:
       delay_print("You eliminated " + str(briefcases[int(user_choice3)]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice3)))
+#Once again, the code now informs you as the player how much money the banker has offered you. You then choose deal or no deal. If you accept the deal the code tells you how much you have won. If you reject the deal the code tells you to continue.
+#Once again the code asks you to pick a briefcase between the number 1-26. If you do not pick one from 1-26 it will ask you to do that. It also asks you to eliminate one briefcase, tells you which one you eliminated and how much money you lost.
   delay_print("The banker is thinking of a deal")
   delay_print(".")
   time.sleep(1.2)
@@ -198,7 +201,7 @@ while yes_or_no.lower() == "yes":
   time.sleep(1.2)
   delay_print(".")
   time.sleep(1.2)
-
+#Once again the banker thinks of a deal whilst making "waiting emojis".
   delay_print("The banker offers you $" + str(offer()))
   time.sleep(2)
   deal_or_no3 = input("Do you accept this offer(deal) or do you reject this offer(no deal) ")
@@ -215,6 +218,8 @@ while yes_or_no.lower() == "yes":
     else:
       delay_print("You eliminated " + str(briefcases[int(user_choice5)]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice5)))
+  #Once again, the code now informs you as the player how much money the banker has offered you. You then choose deal or no deal. If you accept the deal the code tells you how much you have won. If you reject the deal the code tells you to continue.
+#Once again the code asks you to pick a briefcase between the number 1-26. If you do not pick one from 1-26 it will ask you to do that. It also asks you to eliminate one briefcase, tells you which one you eliminated and how much money you lost.
   delay_print("The banker is thinking of a deal")
   delay_print(".")
   time.sleep(1.2)
@@ -222,7 +227,7 @@ while yes_or_no.lower() == "yes":
   time.sleep(1.2)
   delay_print(".")
   time.sleep(1.2)
-  
+  #Once again the banker thinks of a deal whilst making "waiting emojis".
   delay_print("The banker offers you $" + str(offer()))
   time.sleep(2)
   deal_or_no4 = input("Do you accept this offer(deal) or do you reject this offer(no deal) ")
@@ -236,4 +241,6 @@ while yes_or_no.lower() == "yes":
   if final_choice == 1:
     delay_print("You have won " + player_briefcase)
   elif final_choice == 2:
-    delay_print(briefcases(player_briefcase))
+    delay_print("You won" + briefcases(player_briefcase))
+#For the final time, the banker offers the player a deal. If they accept this deal the code tells them they have won the money they have won. If they reject the deal the code says lets continue.
+#The code then informs them the player they can either pick their personal briefcase or the remaining briefcase. The player then types 1 or 2 for their final choice and wins that money. Are you lucky or unlucky?
