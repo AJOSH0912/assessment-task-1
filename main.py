@@ -14,7 +14,9 @@ delay_print("\033[3;33;1m DEAL OR NO DEAL\n")
 
 
 briefcases = {1:1, 2:5, 3:10, 4:20, 5:50, 6:100, 7:200, 8:300, 9:1000, 10:1500, 11:2000, 12:3000, 13:5000, 14:7000, 15:10000, 16:20000, 17:30000, 18:50000, 19:70000, 20:100000, 21:150000, 22:200000, 23:300000, 24:500000, 25:750000, 26:1000000}
+#This shows the amount of values each briefcase.
 remaining_briefcases = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]
+#The above code shows the remaining briefcases.
 
 def offer():
   val = 0
@@ -32,16 +34,17 @@ def shuffle():
 
 
 shuffled_briefcases = shuffle
-
+#The above code shuffles all the briefcases from their original position.
 
 yes_or_no = input("Welcome new player! Would you like to play a game of deal no deal?\n ") 
+#This welcomes the player and asks them if they would like to play deal or no deal. If they reply "yes", it says "Great" and explains them the rules.
 
 if yes_or_no.lower() == "yes":
   user_tutorial = input("Do you know the rules?")
 else:
   delay_print("That's sad!")
   exit()
-  
+#The code above asks the player if they want to go through the tutorial using an if then statement
 if user_tutorial.lower() == "no":
   time.sleep(1)
   delay_print("There are 26 briefcases ranging from values from one dollar to one million dollars. ")
