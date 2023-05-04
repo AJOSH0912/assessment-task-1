@@ -22,7 +22,7 @@ def offer():
   val = 0
   for x in briefcases:
     val = val+briefcases[x]
-  return val/len(briefcases)  
+  return val/len(briefcases)   
 
 def shuffle():
   keys = list(briefcases.keys())
@@ -40,10 +40,47 @@ yes_or_no = input("Welcome new player! Would you like to play a game of deal no 
 #This welcomes the player and asks them if they would like to play deal or no deal. If they reply "yes", it says "Great" and explains them the rules.
 
 if yes_or_no.lower() == "yes":
-  user_tutorial = input("Do you know the rules?")
-else:
-  delay_print("That's sad!")
-  exit()
+  guest_or_sign_in = input("Do you want to play as a guest or do you want to sign in? ")
+if guest_or_sign_in.lower() == "yes":
+
+  root = Tk()
+  root.geometry("500x300")
+
+  def getvals():
+      print("Accepted")
+
+  Label(root, text="Login Credentials", font ="arial 15 bold").grid(row=0, column=3)
+
+  name= Label(root, text="Name")
+  password= Label(root, text="Password")
+
+  name.grid(row=1, column= 2)
+  password.grid(row=2, column= 2)
+
+  namevalue = StringVar
+  passwordvalue = StringVar
+  checkvalue = IntVar
+
+  nameentry = Entry(root, textvariable=namevalue)
+  #passwordentry = Entry(root, textvariable=passwordvalue)
+  passwordentry = Entry(root, show="*")
+
+
+  nameentry.grid(row=1, column=3)
+  passwordentry.grid(row=2, column=3)
+
+  checkbtn = Checkbutton(text="remember me?", variable= checkvalue)
+  checkbtn.grid(row=6, column=3)
+
+  #Button(text="Submit", command=getvals).grid(row=7, column=3 )
+  Button(text="Submit", command=getvals).grid(row=7, column=3 )
+  root.mainloop()
+
+
+  if yes_or_no.lower() == "no":
+    print("You are plaing as a guest and your high scores will not be recorded")
+
+user_tutorial = input("Do you know the rules?")
 #The code above asks the player if they want to go through the tutorial using an if then statement
 if user_tutorial.lower() == "no":
   time.sleep(1)
