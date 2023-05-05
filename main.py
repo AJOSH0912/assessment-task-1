@@ -3,7 +3,7 @@ from tkinter import *
 import time
 import sys
 import time
-
+# The code above imports differnt functions to be used in the game
 def delay_print(s):
     for c in s:
         sys.stdout.write(c)
@@ -23,7 +23,7 @@ def offer():
   for x in briefcases:
     val = val+briefcases[x]
   return val/len(briefcases)   
-
+# The code above generates an offer
 def shuffle():
   keys = list(briefcases.keys())
   random.shuffle(keys)
@@ -31,6 +31,7 @@ def shuffle():
   for i in keys:
     shuffled_briefcases.update({i: briefcases[keys]})
   return shuffled_briefcases
+  # This code shuffles the value of the briefcases
 
 
 shuffled_briefcases = shuffle
@@ -41,8 +42,8 @@ yes_or_no = input("Welcome new player! Would you like to play a game of deal no 
 
 if yes_or_no.lower() == "yes":
   guest_or_sign_in = input("Do you want to play as a guest or do you want to sign in? ")
-if guest_or_sign_in.lower() == "yes":
-
+if guest_or_sign_in.lower() == "sign in":
+# This code asks the user if they want to sign in or play as a guest
   root = Tk()
   root.geometry("500x300")
 
@@ -79,7 +80,7 @@ if guest_or_sign_in.lower() == "yes":
 
   if yes_or_no.lower() == "no":
     print("You are plaing as a guest and your high scores will not be recorded")
-
+# This code informs the player that they are playing as a guest
 user_tutorial = input("Do you know the rules?")
 #The code above asks the player if they want to go through the tutorial using an if then statement
 if user_tutorial.lower() == "no":
@@ -242,5 +243,7 @@ while yes_or_no.lower() == "yes":
     delay_print("You have won " + player_briefcase)
   elif final_choice == 2:
     delay_print("You won" + briefcases(player_briefcase))
-#For the final time, the banker offers the player a deal. If they accept this deal the code tells them they have won the money they have won. If they reject the deal the code says lets continue.
-#The code then informs them the player they can either pick their personal briefcase or the remaining briefcase. The player then types 1 or 2 for their final choice and wins that money. Are you lucky or unlucky?
+#For the final time, the banker offers the player a deal. If they accept this deal the code tells them they have won the money they have won.
+#  If they reject the deal the code says lets continue.The code then informs them the player they can either pick their personal briefcase or the remaining briefcase. 
+# The player then types 1 or 2 for their final choice and wins that money. Are you lucky or unlucky?
+
