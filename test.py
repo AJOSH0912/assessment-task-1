@@ -142,8 +142,7 @@ briefcases = f_briefcases()
 while yes_or_no.lower() == "yes":
   delay_print("Pick your personal case from the numbers between 1 and 26!\n ")
   player_briefcase = int(input())
-
-  # Below line is to remove the selected item from the list
+ # Below line is to remove the selected item from the list
   remaining_briefcases.pop(remaining_briefcases.index(int(player_briefcase)))
   f_select_briefcases(20)
   f_select_briefcases(14)
