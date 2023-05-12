@@ -3,7 +3,7 @@ from tkinter import *
 import time
 import sys
 import time
-# The code above imports differnt functions to be used in the game
+
 def delay_print(s):
     for c in s:
         sys.stdout.write(c)
@@ -23,7 +23,6 @@ def offer():
   for x in briefcases:
     val = val+briefcases[x]
   return val/len(briefcases)   
-<<<<<<< HEAD
 
 def f_briefcases():
   briefcases = {}
@@ -31,18 +30,6 @@ def f_briefcases():
   for i in range(1,27):
     briefcases[str(i)] = value.pop(value.index(random.choice(value)))
   return briefcases
-=======
-# The code above generates an offer
-def shuffle():
-  keys = list(briefcases.keys())
-  random.shuffle(keys)
-  shuffled_briefcases = dict()
-  for i in keys:
-    shuffled_briefcases.update({i: briefcases[keys]})
-  return shuffled_briefcases
-  # This code shuffles the value of the briefcases
->>>>>>> 9d3ba9575c4023bc492b482d1878cc5b2a328273
-
 
 #The above code shuffles all the briefcases from their original position.
 delay_print("Welcome new player! Would you like to play a game of deal no deal?\n ")
@@ -50,21 +37,12 @@ yes_or_no = input()
 #This welcomes the player and asks them if they would like to play deal or no deal. If they reply "yes", it says "Great" and explains them the rules.
 
 if yes_or_no.lower() == "yes":
-<<<<<<< HEAD
   delay_print("Do you want to play as a guest or do you want to sign in? ")
   guest_or_sign_in = input()
   if guest_or_sign_in.lower() == "yes":
   
     root = Tk()
     root.geometry("500x300")
-=======
-  guest_or_sign_in = input("Do you want to play as a guest or do you want to sign in? ")
-if guest_or_sign_in.lower() == "sign in":
-# This code asks the user if they want to sign in or play as a guest
-  root = Tk()
-  root.geometry("500x300")
->>>>>>> 9d3ba9575c4023bc492b482d1878cc5b2a328273
-
     def getvals():
       print("Accepted")
 
@@ -80,11 +58,23 @@ if guest_or_sign_in.lower() == "sign in":
     passwordvalue = StringVar
     checkvalue = IntVar
 
+    name= Label(root, text="Name")
+    password= Label(root, text="Password")
+
+    name.grid(row=1, column= 2)
+    password.grid(row=2, column= 2)
+
+    namevalue = StringVar
+    passwordvalue = StringVar
+    checkvalue = IntVar
+
     nameentry = Entry(root, textvariable=namevalue)
     #passwordentry = Entry(root, textvariable=passwordvalue)
     passwordentry = Entry(root, show="*")
 
-
+    nameentry = Entry(root, textvariable=namevalue)
+    #passwordentry = Entry(root, textvariable=passwordvalue)
+    passwordentry = Entry(root, show="*")
     nameentry.grid(row=1, column=3)
     passwordentry.grid(row=2, column=3)
 
@@ -95,17 +85,28 @@ if guest_or_sign_in.lower() == "sign in":
     Button(text="Submit", command=getvals).grid(row=7, column=3 )
     root.mainloop()
 
-<<<<<<< HEAD
 else:
   print("You are plaing as a guest and your high scores will not be recorded")
 delay_print("Do you know the rules\n")
 user_tutorial = input()
-=======
-  if yes_or_no.lower() == "no":
+if yes_or_no.lower() == "no":
     print("You are plaing as a guest and your high scores will not be recorded")
 # This code informs the player that they are playing as a guest
-user_tutorial = input("Do you know the rules?")
->>>>>>> 9d3ba9575c4023bc492b482d1878cc5b2a328273
+    user_tutorial = input("Do you know the rules?")
+    nameentry.grid(row=1, column=3)
+    passwordentry.grid(row=2, column=3)
+
+    checkbtn = Checkbutton(text="remember me?", variable= checkvalue)
+    checkbtn.grid(row=6, column=3)
+
+    #Button(text="Submit", command=getvals).grid(row=7, column=3 )
+    Button(text="Submit", command=getvals).grid(row=7, column=3 )
+    root.mainloop()
+
+else:
+  print("You are playing as a guest and your high scores will not be recorded")
+delay_print("Do you know the rules\n")
+user_tutorial = input()
 #The code above asks the player if they want to go through the tutorial using an if then statement
 if user_tutorial.lower() == "no":
   time.sleep(1)
@@ -280,14 +281,14 @@ while yes_or_no.lower() == "yes":
   if final_choice == 1:
     delay_print("You have won " + player_briefcase)
   elif final_choice == 2:
-<<<<<<< HEAD
     delay_print("You won" + briefcases(remaining_briefcases))
 #For the final time, the banker offers the player a deal. If they accept this deal the code tells them they have won the money they have won. If they reject the deal the code says lets continue.
 #The code then informs them the player they can either pick their personal briefcase or the remaining briefcase. The player then types 1 or 2 for their final choice and wins that money. Are you lucky or unlucky?
-=======
     delay_print("You won" + briefcases(player_briefcase))
 #For the final time, the banker offers the player a deal. If they accept this deal the code tells them they have won the money they have won.
 #  If they reject the deal the code says lets continue.The code then informs them the player they can either pick their personal briefcase or the remaining briefcase. 
 # The player then types 1 or 2 for their final choice and wins that money. Are you lucky or unlucky?
 
->>>>>>> 9d3ba9575c4023bc492b482d1878cc5b2a328273
+    delay_print("You won" + briefcases(remaining_briefcases))
+#For the final time, the banker offers the player a deal. If they accept this deal the code tells them they have won the money they have won. If they reject the deal the code says lets continue.
+#The code then informs them the player they can either pick their personal briefcase or the remaining briefcase. The player then types 1 or 2 for their final choice and wins that money. Are you lucky or unlucky?
