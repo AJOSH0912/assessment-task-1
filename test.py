@@ -18,11 +18,7 @@ briefcases = {1:1, 2:5, 3:10, 4:20, 5:50, 6:100, 7:200, 8:300, 9:1000, 10:1500, 
 remaining_briefcases = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]
 #The above code shows the remaining briefcases.
 
-def offer():
-  val = 0
-  for x in briefcases:
-    val = val+briefcases[x]
-  return val/len(briefcases)   
+
 
 def f_briefcases():
   briefcases = {}
@@ -31,7 +27,14 @@ def f_briefcases():
     briefcases[str(i)] = value.pop(value.index(random.choice(value)))
   return briefcases
 
+def offer(briefcases):
+  val = 0
+  for x in briefcases.values():
+    val = val+x
+  return val/len(briefcases)   
+
 def f_select_briefcases(val):
+  global briefcases
   while len(remaining_briefcases) > val:  
     delay_print("Choose a briefcase to eliminate\n ")
     user_choice = input()
@@ -40,6 +43,9 @@ def f_select_briefcases(val):
     else:
       delay_print("You eliminated " + str(briefcases[user_choice]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice)))
+      briefcases.pop(user_choice)
+      print("HI")
+      print(briefcases)
     print()
 #The above code asks to pick a personal briefcase between 1- 26. You then choose a breifcase to eliminate. If the player chooses a briefcases that is not between numbers 1-26 it will ask them to. It then tells them what briefcase they eliminated and how much money you have lost.
   delay_print("The banker is thinking of a deal")
@@ -50,7 +56,7 @@ def f_select_briefcases(val):
   delay_print(".")
   time.sleep(1.2)
 #This informs the player that the banker is thinking of a deal while making "waiting emojis".
-  delay_print("The banker offers you $" + str(offer())) 
+  delay_print("The banker offers you $" + str(offer(briefcases))) 
   print()
   time.sleep(2)
   delay_print("Do you accept this offer(deal) or do you reject this offer(no deal) ")
@@ -58,7 +64,7 @@ def f_select_briefcases(val):
   delay_print(deal_or_no)
   if deal_or_no == "deal":
     print()
-    delay_print("You have won " + str(offer()))
+    delay_print("You have won " + str(offer(briefcases)))
     exit()
   else:
     print()
