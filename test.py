@@ -70,12 +70,6 @@ def f_select_briefcases(val):
     print()
     delay_print("Ok, let's continue!")
 
-
-
-
-
-    
-#
 #The above code shuffles all the briefcases from their original position.
 delay_print("Welcome new player! Would you like to play a game of deal no deal?\n ")
 yes_or_no = input() 
@@ -84,7 +78,7 @@ yes_or_no = input()
 if yes_or_no.lower() == "yes":
   delay_print("Do you want to play as a guest or do you want to sign in? ")
   guest_or_sign_in = input()
-  if guest_or_sign_in.lower() == "yes":
+  if guest_or_sign_in.lower() == "sign in":
   
     root = Tk()
     root.geometry("500x300")
@@ -143,8 +137,14 @@ if user_tutorial.lower() == "no":
   delay_print("If the contestant reaches the last two remaining briefcases then the contestant must select one and the contestant will get the amount of money in the leftover briefcase. ")
 else:
   delay_print("Let's Start\n")
-#The above code are the rules explained to the player once they agree to play the game. If they do not want to play the game, the game replies with "That's sad" and ends the code.
-briefcases = f_briefcases()
+  print("Do you want to play singleplayer or multiplayer?")
+  
+singleplayer_or_multiplayer = input()
+if singleplayer_or_multiplayer.lower() == "singleplayer":
+  print("You are now playing in singleplayer mode ")
+
+  #The above code are the rules explained to the player once they agree to play the game. If they do not want to play the game, the game replies with "That's sad" and ends the code.
+  briefcases = f_briefcases()
 while yes_or_no.lower() == "yes":
   delay_print("Pick your personal case from the numbers between 1 and 26!\n ")
   player_briefcase = int(input())
@@ -161,3 +161,104 @@ while yes_or_no.lower() == "yes":
     delay_print("You have won " + player_briefcase)
   elif final_choice == 2:
     delay_print("You won" + briefcases(remaining_briefcases))
+  else: # This line of code lets the player know that theybare playing in multiplayer mode and it will launch an alternate mode of the game to accomodate two differnt people playing. The multiplayer mode ranges from lines 165 to 264
+    delay_print("You are now playing in multiplayer mode")
+    time.sleep(1)
+    print("You will now have to playa amodified version of the game eith anothe person")
+    time.sleep(1)
+    print("The two players will play against each other and the person eith the highest amount of money at the end wins!")
+
+def f_briefcases():
+  briefcases = {}
+  value = [1, 5, 10, 20, 50, 100, 200, 300, 1000, 1500, 2000, 3000, 5000, 7000, 10000, 20000, 30000, 50000, 70000, 100000, 150000, 200000, 300000, 500000, 750000, 1000000]
+  for i in range(1,27):
+    briefcases[str(i)] = value.pop(value.index(random.choice(value)))
+  return briefcases
+
+def offer(briefcases):
+  val = 0
+  for x in briefcases.values():
+    val = val+x
+  return val/len(briefcases)   
+
+def f_select_briefcases(val):
+  global briefcases
+  while len(remaining_briefcases) > val:  
+    delay_print("Choose a briefcase to eliminate\n ")
+    user_choice = input()
+    if int(user_choice) not in remaining_briefcases:
+      delay_print("Sorry, you can only choose from briefcases between 1 to 26")
+    else:
+      delay_print("You eliminated " + str(briefcases[user_choice]) + " Dollar/s")
+      remaining_briefcases.pop(remaining_briefcases.index(int(user_choice)))
+      briefcases.pop(user_choice)
+      print("HI")
+      print(briefcases)
+    print()
+
+  delay_print("The banker is thinking of a deal")
+  delay_print(".")
+  time.sleep(1.2)
+  delay_print(".")
+  time.sleep(1.2)
+  delay_print(".")
+  time.sleep(1.2)
+
+  delay_print("The banker offers you $" + str(offer(briefcases))) 
+  print()
+  time.sleep(2)
+  delay_print("Do you accept this offer(deal) or do you reject this offer(no deal) ")
+  deal_or_no = input()
+  delay_print(deal_or_no)
+  if deal_or_no == "deal":
+    print()
+    delay_print("You have won " + str(offer(briefcases)))
+    exit()
+  else:
+    print()
+    delay_print("Ok, let's continue!")
+
+  briefcases = f_briefcases()
+while yes_or_no.lower() == "yes":
+  delay_print("Pick your personal case from the numbers between 1 and 26!\n ")
+  player_briefcase = int(input())
+
+  remaining_briefcases.pop(remaining_briefcases.index(int(player_briefcase)))
+  f_select_briefcases(20)
+  f_select_briefcases(14)
+  f_select_briefcases(8)
+  f_select_briefcases(2)
+  f_select_briefcases(1)
+
+  final_choice = input()
+  if final_choice == 1:
+    delay_print("You have won " + player_briefcase)
+  elif final_choice == 2:
+    delay_print("You won" + briefcases(remaining_briefcases))
+else: 
+  delay_print("You are now playing in multiplayer mode")
+  time.sleep(1)
+  print("You will now have to playa amodified version of the game eith anothe person")
+  time.sleep(1)
+  print("The two players will play against each other and the person eith the highest amount of money at the end wins!")
+
+def f_briefcases():
+  briefcases = {}
+  value = [1, 5, 10, 20, 50, 100, 200, 300, 1000, 1500, 2000, 3000, 5000, 7000, 10000, 20000, 30000, 50000, 70000, 100000, 150000, 200000, 300000, 500000, 750000, 1000000]
+  for i in range(1,27):
+    briefcases[str(i)] = value.pop(value.index(random.choice(value)))
+  return briefcases
+
+def offer(briefcases):
+  val = 0
+  for x in briefcases.values():
+    val = val+x
+  return val/len(briefcases)   
+
+def f_select_briefcases(val):
+  global briefcases
+  while len(remaining_briefcases) > val:  
+    delay_print("Choose a briefcase to eliminate\n ")
+    user_choice = input()
+    if int(user_choice) not in remaining_briefcases:
+      delay_print("Sorry, you can only choose from briefcases between 1 to 26")
