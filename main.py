@@ -6,10 +6,10 @@ import time
 import random
 import shelve
 import pygame
+from simple_colors import *
 
 pygame.mixer.init()
 pygame.mixer.music.load('Sound.mp3')
-
 
 def delay_print(s):
     for c in s:
@@ -24,8 +24,6 @@ briefcases = {1:1, 2:5, 3:10, 4:20, 5:50, 6:100, 7:200, 8:300, 9:1000, 10:1500, 
 #This shows the amount of values each briefcase.
 remaining_briefcases = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]
 #The above code shows the remaining briefcases.
-
-#create a high score system
 
 
 def f_briefcases():
@@ -50,7 +48,7 @@ def f_select_briefcases(val):
       delay_print("Sorry, you can only choose from briefcases between 1 to 26")
     else:
       pygame.mixer.music.play(1)
-      pygame.mixer.music.stop(1)
+      pygame.mixer.music.stop()
       delay_print("You eliminated " + str(briefcases[user_choice]) + " Dollar/s")
       remaining_briefcases.pop(remaining_briefcases.index(int(user_choice)))
       briefcases.pop(user_choice)
@@ -77,7 +75,7 @@ def f_select_briefcases(val):
     exit()
   else:
     print()
-    delay_print("Ok, let's continue!")
+    delay_print("Ok, let's continue!\n")
 
 
 #The above code shuffles all the briefcases from their original position.
@@ -109,7 +107,7 @@ if yes_or_no.lower() == "yes":
     checkvalue = IntVar
 
     nameentry = Entry(root, textvariable=namevalue)
-    #passwordentry = Entry(root, textvariable=passwordvalue)
+
     passwordentry = Entry(root, show="*")
 
 
@@ -119,7 +117,7 @@ if yes_or_no.lower() == "yes":
     checkbtn = Checkbutton(text="remember me?", variable= checkvalue)
     checkbtn.grid(row=6, column=3)
 
-    #Button(text="Submit", command=getvals).grid(row=7, column=3 )
+   
     Button(text="Submit", command=getvals).grid(row=7, column=3 )
     root.mainloop()
 
@@ -128,7 +126,7 @@ if yes_or_no.lower() == "yes":
     user_tutorial = input()
   
   elif guest_or_sign_in.lower() == "1":
-    delay_print("You are playing as a guest and your high scores will not be recorded")
+    delay_print("You are playing as a guest\n")
     delay_print("Do you know the rules\n")
     user_tutorial = input()
   
@@ -158,6 +156,9 @@ if user_tutorial.lower() == "no":
   delay_print("If the contestant reaches the last two remaining briefcases then the contestant must select one and the contestant will get the amount of money in the leftover briefcase. ")
 else:
   delay_print("Let's Start\n")
+
+
+
 #The above code are the rules explained to the player once they agree to play the game. If they do not want to play the game, the game replies with "That's sad" and ends the code.
 briefcases = f_briefcases()
 while yes_or_no.lower() == "yes":
@@ -170,9 +171,14 @@ while yes_or_no.lower() == "yes":
   f_select_briefcases(8)
   f_select_briefcases(2)
   f_select_briefcases(1)
+  #The above repeats the define which runs the game
   delay_print("Now choose between your personal briefcase(1) and the last remaining briefcase(2)\n")
   final_choice = input()
   if final_choice == 1:
-    delay_print("You have won " + player_briefcase)
+     delay_print("You have won " + briefcases(player_briefcase))
   elif final_choice == 2:
-    delay_print("You won" + briefcases(remaining_briefcases[remaining_briefcases]))
+    delay_print("You won" + str(briefcases([remaining_briefcases])))
+  else:
+    delay_print("Please restart and enter a valid answer")
+    exit()
+
