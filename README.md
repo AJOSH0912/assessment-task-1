@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-function deal_or_no_deal:
+
 
 # Initialise briefcases with random values between $1 and $1,000,000
 
@@ -7,9 +6,17 @@ set briefcases to a list of 26 random values between 1 and 1000000
 
 set remaining_briefcases to a list of integers from 0 to 25
 
+# Define all variables
+
+These are used to compact the od and help to fix any errors
+
+# Ask for player login
+
+Ask for player login and pops up a new screen
+
 # Display instructions
 
-display game instructions
+display game instructions if the user needs it
 
 # Choose player's briefcase
 
@@ -19,7 +26,8 @@ remove chosen briefcase from remaining_briefcases
 
 # Begin game loop
 
-while there are more than 1 remaining briefcases:
+while there are more than 20 remaining briefcases....
+
 
 # Eliminate briefcases
 
@@ -28,6 +36,8 @@ set num_to_eliminate to the minimum of 5 or number of remaining briefcases
 for each briefcase to eliminate:
 
 prompt player to choose a briefcase to eliminate
+
+Play a money sound
 
 remove chosen briefcase from remaining_briefcases
 
@@ -57,7 +67,4 @@ display message that player has chosen to keep their briefcase
 
 display the value of the player's briefcase
 =======
-# assessment-task-1
-assessment-task-1
-asdasddasdasdasdads
->>>>>>> c7de299b0544038c5794d6bbfc24a0afd153827a
+
