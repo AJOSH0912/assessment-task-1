@@ -35,9 +35,12 @@ def f_briefcases():
 
 def offer(briefcases):
   val = 0
+  offer = 0
   for x in briefcases.values():
     val = val+x
-  return val/len(briefcases)   
+  offer = val/len(briefcases)
+  offer = round(offer, 2)
+  return offer   
 
 def f_select_briefcases(val):
   global briefcases
@@ -71,7 +74,7 @@ def f_select_briefcases(val):
   delay_print(deal_or_no)
   if deal_or_no == "deal":
     print()
-    delay_print("You have won " + str(offer(briefcases) + "dollars"))
+    delay_print("You have won " + str(offer(briefcases)) + " dollars")
     exit()
   else:
     print()
@@ -139,21 +142,21 @@ else:
 #The code above asks the player if they want to go through the tutorial using an if then statement
 if user_tutorial.lower() == "no":
   time.sleep(1)
-  delay_print("There are 26 briefcases ranging from values from one dollar to one million dollars. ")
+  delay_print("There are 26 briefcases ranging from values from one dollar to one million dollars. \n")
   time.sleep(1)
-  delay_print("You must now choose to keep one briefcase safe from elimination this is known as your personal briefcase. ")
+  delay_print("You must now choose to keep one briefcase safe from elimination this is known as your personal briefcase. \n")
   time.sleep(1)
-  delay_print("You will eliminate 6 briefcases of your choice. ")
+  delay_print("You will eliminate 6 briefcases of your choice. \n")
   time.sleep(1)
-  delay_print("After this the bank will make an offer, it is your choice to accept the offer or not. ")
+  delay_print("After this the bank will make an offer, it is your choice to accept the offer or not. \n")
   time.sleep(1)
-  delay_print("If you take the deal then you will walk away with that amount of money and the game will end. ")
+  delay_print("If you take the deal then you will walk away with that amount of money and the game will end.\n ")
   time.sleep(1)
-  delay_print("If you do not take the offer then you will choose another six briefcases to eliminate. ")
+  delay_print("If you do not take the offer then you will choose another six briefcases to eliminate. \n")
   time.sleep(1)
-  delay_print("Then the banker will make another offer this will continue until either the contestant chooses a deal or they reach the last two remaining briefcases. ")
+  delay_print("Then the banker will make another offer this will continue until either the contestant chooses a deal or they reach the last two remaining briefcases. \n")
   time.sleep(1)
-  delay_print("If the contestant reaches the last two remaining briefcases then the contestant must select one and the contestant will get the amount of money in the leftover briefcase. ")
+  delay_print("If the contestant reaches the last two remaining briefcases then the contestant must select one and the contestant will get the amount of money in the leftover briefcase. \n")
 else:
   delay_print("Let's Start\n")
 
